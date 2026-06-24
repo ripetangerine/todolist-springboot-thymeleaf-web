@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layout/main}">
+
+<body>
+
+<div layout:fragment="content">
+
+    <h2>할 일 추가</h2>
+
+    <form th:action="@{/todos}" method="post">
+
+        <div>
+            <label>제목</label>
+            <input
+                    type="text"
+                    name="title"
+                    placeholder="할 일을 입력하세요">
+        </div>
+
+        <br>
+
+        <button type="submit">
+            등록
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
