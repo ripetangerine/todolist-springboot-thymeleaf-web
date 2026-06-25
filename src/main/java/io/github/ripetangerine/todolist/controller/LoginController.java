@@ -49,6 +49,8 @@ public class LoginController {
             });
             return "login";
         }
+
+
         try{
 
             String token = jwtTokenService.getLoginResponse(request).getToken();
@@ -56,7 +58,7 @@ public class LoginController {
                     .httpOnly(true)   // JS 접근 차단 (보안)
                     .secure(false)    // HTTPS 쓰면 true
                     .path("/")
-                    .maxAge(60 * 60)
+                    .maxAge(60 * 60 * 60)
                     .sameSite("Lax")
 //                    .expiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60))
                     .build();

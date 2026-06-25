@@ -16,14 +16,15 @@ public class TodoController {
     private final TodoService todoService;
 
     @GetMapping()
-    public String todos() {
-//
-//        model.addAttribute(
-//                "todos",
-//                todoService.findAll()
-//        );
+    public String todos(Model model) {
+
+        model.addAttribute(
+                "todos",
+                todoService.findAll()
+        );
 
         return "todo/list";
+//        return "test";
     }
 
     @GetMapping("/new")

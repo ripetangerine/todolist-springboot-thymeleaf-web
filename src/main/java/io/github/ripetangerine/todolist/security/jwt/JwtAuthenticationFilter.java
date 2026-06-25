@@ -39,11 +39,22 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws IOException, ServletException {
 
-        final String header = request.getHeader(SecurityConstants.HEADER_STRING);
-
         String username = null;
         String authToken = null;
         String token = null;
+
+        String path = request.getRequestURI();
+
+        // 🔥 여기 추가
+        if (path.startsWith("/css/")
+                || path.startsWith("/js/")
+                || path.startsWith("/images/")
+                || path.startsWith("/error")
+                || path.startsWith("/layout/")
+                || path.startsWith("/fragment/")) {
+            chain.doFilter(request, response);
+            return;
+        }
 
         if (request.getCookies() != null) {
             token = Arrays.stream(request.getCookies())

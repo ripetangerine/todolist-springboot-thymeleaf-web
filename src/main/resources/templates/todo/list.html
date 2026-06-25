@@ -2,10 +2,12 @@
 <html lang="ko"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layout/main}">
+      layout:decorate="~{layout/main.html}">
 
 <head>
     <title>Todo 목록</title>
+
+    <link rel="stylesheet" th:href="@{/css/todo.css}">
 </head>
 
 <body>
@@ -23,6 +25,7 @@
         <tr th:each="todo : ${todos}">
             <td th:text="${todo.id}"></td>
             <td th:text="${todo.title}"></td>
+            <td th:text="${todo.isCompleted()}"></td>
         </tr>
     </table>
 
