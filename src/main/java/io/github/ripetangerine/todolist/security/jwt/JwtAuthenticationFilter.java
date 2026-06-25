@@ -45,13 +45,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String path = request.getRequestURI();
 
-        // 🔥 여기 추가
-        if (path.startsWith("/css/")
+        if (path.startsWith("/login")
+                || path.startsWith("/register")
+                || path.startsWith("/css/")
                 || path.startsWith("/js/")
                 || path.startsWith("/images/")
                 || path.startsWith("/error")
                 || path.startsWith("/layout/")
-                || path.startsWith("/fragment/")) {
+                || path.startsWith("/fragment/")
+        ) {
             chain.doFilter(request, response);
             return;
         }
@@ -74,7 +76,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         }
         catch (Exception e) {
             log.error("Authentication Exception : {}", e.getMessage());
-            chain.doFilter(request, response);
+//            chain.doFilter(request, response);
+            response.sendRedirect("/login");
             return;
         }
 

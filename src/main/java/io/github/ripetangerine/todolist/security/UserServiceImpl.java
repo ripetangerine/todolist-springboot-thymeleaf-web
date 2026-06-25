@@ -15,11 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * Created on Ağustos, 2020
- *
- * @author Faruk
- */
+
 @Slf4j
 @Service
 @RequiredArgsConstructor

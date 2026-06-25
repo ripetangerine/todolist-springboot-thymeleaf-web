@@ -1,4 +1,4 @@
-package io.github.ripetangerine.todolist.exceptions;
+package io.github.ripetangerine.todolist.exceptions.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,11 +9,6 @@ import org.springframework.http.HttpStatus;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/**
- * Created on Ağustos, 2020
- *
- * @author Faruk
- */
 @Getter
 @Setter
 @NoArgsConstructor

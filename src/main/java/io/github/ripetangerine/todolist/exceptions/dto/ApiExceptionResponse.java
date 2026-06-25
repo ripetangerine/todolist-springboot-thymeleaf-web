@@ -1,4 +1,4 @@
-package io.github.ripetangerine.todolist.exceptions;
+package io.github.ripetangerine.todolist.exceptions.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
